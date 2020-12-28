@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>study_mvc</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+
+	<servlet>
+		<servlet-name>mvc</servlet-name><!-- 여러개 설정가능 / 구별하기위한 이름 -->
+		<servlet-class>mvc.controller.MvcController</servlet-class><!-- 패키지이름을 포한한 풀네임 -->
+	</servlet>
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>mvc.controller.TestController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name><!-- mvc서블렛 찾기 / 해당 mvc로 찾아감 -->
+		<url-pattern>*.do</url-pattern><!-- 주소상관없이 모든요청이 들어올수있게  -->
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>*.nhn</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
